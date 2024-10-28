@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get(uri: '/tes', action: function () {
-    return response()->json(data: ["OKE"], status: 200);
+    $result = Artisan::call('migrate');
+    return response($result);
 });
 Route::post(uri: '/form', action: function (Request $request) {
     $data = $request->all();
