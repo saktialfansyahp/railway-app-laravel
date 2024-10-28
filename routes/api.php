@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
@@ -27,3 +28,4 @@ Route::post(uri: '/form', action: function (Request $request) {
     $data = $request->all();
     return response()->json([$data], 200);
 });
+Route::post('register', [AuthController::class, 'register']);
