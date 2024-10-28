@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get(uri: '/tes', action: function () {
-    $result = Artisan::call('migrate');
+    $result = Artisan::call('migrate:fresh');
     return response($result);
 });
 Route::post(uri: '/form', action: function (Request $request) {
