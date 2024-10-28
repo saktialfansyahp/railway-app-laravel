@@ -21,3 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get(uri: '/tes', action: function () {
     return response()->json(data: ["OKE"], status: 200);
 });
+Route::post(uri: '/form', action: function (Request $request) {
+    $data = $request->all();
+    return response()->json([$data], 200);
+});
